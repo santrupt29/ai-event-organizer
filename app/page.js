@@ -13,7 +13,7 @@ export default function LandingPage() {
           <div className="text-center sm:text-left">
             <div className="mb-6">
               <span className="text-gray-500 font-light tracking-wide">
-                spott<span className="text-purple-400">*</span>
+                Evento<span className="text-purple-400">*</span>
               </span>
             </div>
 
@@ -27,7 +27,7 @@ export default function LandingPage() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 mb-12 max-w-lg font-light">
-              Whether you&apos;re hosting or attending, Spott makes every event
+              Whether you&apos;re hosting or attending, Evento makes every event
               memorable. Join our community today.
             </p>
 
