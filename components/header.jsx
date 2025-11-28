@@ -7,20 +7,20 @@ import { SignInButton, useAuth, UserButton, useUser } from "@clerk/nextjs";
 import { Authenticated, Unauthenticated } from "convex/react";
 import { BarLoader } from "react-spinners";
 import { useStoreUser } from "@/hooks/use-store-user";
-// import { useOnboarding } from "@/hooks/use-onboarding";
-// import OnboardingModal from "./onboarding-modal";
-// import SearchLocationBar from "./search-location-bar";
+import { useOnboarding } from "@/hooks/use-onboarding";
+import OnboardingModal from "./onboarding-modal";
+import SearchLocationBar from "./search-location-bar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-// import UpgradeModal from "./upgrade-modal";
+import UpgradeModal from "./upgrade-modal";
 import { Badge } from "./ui/badge";
 
 export default function Header() {
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
 
   const { isLoading } = useStoreUser();
-  // const { showOnboarding, handleOnboardingComplete, handleOnboardingSkip } =
-    // useOnboarding();
+  const { showOnboarding, handleOnboardingComplete, handleOnboardingSkip } =
+    useOnboarding();
 
   const { has } = useAuth();
   const hasPro = has?.({ plan: "pro" });
@@ -32,8 +32,8 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/spott.png"
-              alt="Spott logo"
+              src="/evento4.png"
+              alt="Evento logo"
               width={500}
               height={500}
               className="w-full h-11"
@@ -50,7 +50,7 @@ export default function Header() {
 
           {/* Search & Location - Desktop Only */}
           <div className="hidden md:flex flex-1 justify-center">
-            {/* <SearchLocationBar /> */}
+            <SearchLocationBar />
           </div>
 
           {/* Right Side Actions */}
@@ -125,7 +125,7 @@ export default function Header() {
       </nav>
 
       {/* Onboarding Modal */}
-      {/* <OnboardingModal
+      <OnboardingModal
         isOpen={showOnboarding}
         onClose={handleOnboardingSkip}
         onComplete={handleOnboardingComplete}
@@ -135,7 +135,7 @@ export default function Header() {
         isOpen={showUpgradeModal}
         onClose={() => setShowUpgradeModal(false)}
         trigger="header"
-      /> */}
+      /> 
     </>
   );
 }
