@@ -9,7 +9,7 @@ import { ConvexClientProvider } from "./ConvexClientProvider";
 import { Toaster } from "sonner";
 
 export const metadata = {
-  title: "Spott - Delightful Events Start Here",
+  title: "Evento - Delightful Events Start Here",
   description: "Discover and create amazing events",
 };
 
