@@ -32,7 +32,7 @@ export default function LandingPage() {
             </p>
 
             <Link href="/explore">
-              <Button size="xl" className={"rounded-full"}>
+              <Button size="xl" className={"px-5 py-3 text-xl bg-linear-to-r from-purple-500 via-purple-600 to-purple-700 text-white hover:bg-linear-to-br focus:ring-purple-300 dark:focus:ring-purple-800 cursor-pointer"}>
                 Get Started
               </Button>
             </Link>
