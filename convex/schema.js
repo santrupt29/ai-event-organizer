@@ -26,6 +26,9 @@ export default defineSchema({
     // Organizer tracking (User Subscription)
     freeEventsCreated: v.number(), // Track free event limit (1 free)
 
+    // Whether the User has Pro or not
+    // hasPro : v.boolean(),
+
     // Timestamps
     createdAt: v.number(),
     updatedAt: v.number(),

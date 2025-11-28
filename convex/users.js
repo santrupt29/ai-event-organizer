@@ -48,6 +48,7 @@ export const store = mutation({
       imageUrl: identity.pictureUrl,
       hasCompletedOnboarding: false,
       freeEventsCreated: 0,
+      // hasPro : false,
       createdAt: Date.now(),
       updatedAt: Date.now(),
     });
@@ -101,3 +102,40 @@ export const completeOnboarding = mutation({
     return user._id;
   },
 });
+
+
+
+// export const upgradeToPro = mutation({
+//   args: {},
+//   handler: async (ctx) => {
+//     const identity = await ctx.auth.getUserIdentity();
+//     if (!identity) {
+//       throw new Error("Unauthenticated");
+//     }
+
+//     const user = await ctx.db
+//       .query("users")
+//       .withIndex("by_token", (q) =>
+//         q.eq("tokenIdentifier", identity.tokenIdentifier)
+//       )
+//       .unique();
+
+//     if (!user) {
+//       throw new Error("User not found");
+//     }
+
+//     // Only update if they aren't already Pro
+//     if (user.hasPro) {
+//       return user._id; // Or throw an error, depending on desired behavior
+//     }
+
+//     await ctx.db.patch(user._id, { 
+//       hasPro: true,
+//       updatedAt: Date.now(),
+//     });
+
+//     return user._id;
+//   },
+// });
+
+

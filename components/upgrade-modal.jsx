@@ -38,6 +38,9 @@ export default function UpgradeModal({ isOpen, onClose, trigger = "limit" }) {
                 },
               },
             },
+            
+            // successUrl: `${window.location.origin}/upgrade/success`,
+            // cancelUrl: `${window.location.origin}/dashboard`,
           }}
         />
 

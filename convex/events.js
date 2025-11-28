@@ -28,19 +28,19 @@ export const createEvent = mutation({
     try {
       const user = await ctx.runQuery(internal.users.getCurrentUser);
       // SERVER-SIDE CHECK: Verify event limit for Free users
-      if (!args.hasPro && user.freeEventsCreated >= 1) {
-        throw new Error(
-          "Free event limit reached. Please upgrade to Pro to create more events."
-        );
-      }
+      // if (!args.hasPro && user.freeEventsCreated >= 1) {
+      //   throw new Error(
+      //     "Free event limit reached. Please upgrade to Pro to create more events."
+      //   );
+      // }
 
       // SERVER-SIDE CHECK: Verify custom color usage
       const defaultColor = "#1e3a8a";
-      if (!args.hasPro && args.themeColor && args.themeColor !== defaultColor) {
-        throw new Error(
-          "Custom theme colors are a Pro feature. Please upgrade to Pro."
-        );
-      }
+      // if (!args.hasPro && args.themeColor && args.themeColor !== defaultColor) {
+      //   throw new Error(
+      //     "Custom theme colors are a Pro feature. Please upgrade to Pro."
+      //   );
+      // }
 
       // Force default color for Free users
       const themeColor = args.hasPro ? args.themeColor : defaultColor;
