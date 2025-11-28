@@ -4,7 +4,8 @@ import "./globals.css";
 import { dark } from "@clerk/themes";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
-import { ConvexClientProvider } from "@/components/convex-client-provider";
+// import { ConvexClientProvider } from "@/components/convex-client-provider";
+import { ConvexClientProvider } from "./ConvexClientProvider";
 import { Toaster } from "sonner";
 
 export const metadata = {
