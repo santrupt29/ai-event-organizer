@@ -15,7 +15,7 @@ const Footer = () => {
         <a href="https://santrupt.vercel.app" className="text-gray-400">
         <Globe className="w-5 h-5" />
         </a>
-        <a href="https://x.com/SantruptP70660" className="text-gray-400">
+        <a href="https://x.com/santrupt_29" className="text-gray-400">
           <Twitter className="w-5 h-5" />
         </a>
       </div>
@@ -24,3 +24,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
