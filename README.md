@@ -1,48 +1,67 @@
-# AI Event Organizer
+# Evento
 
-**A modern, full-stack event management platform powered by AI.**
+**Evento** is a modern, AI-powered event organization platform that empowers users to create, discover, and manage events seamlessly. Leveraging **Google Gemini AI**, Evento assists organizers in generating compelling event details, while providing a smooth experience for attendees with secure ticketing and real-time updates.
 
-## Overview
+## 🚀 Tech Stack
 
-AI Event Organizer is a comprehensive event management solution that leverages the power of Generative AI to streamline the event creation process. Built with a focus on performance, scalability, and user experience, this application allows users to seamlessly create, discover, and manage events.
+- **Framework:** [Next.js 16](https://nextjs.org/) (App Router)
+- **Language:** TypeScript / JavaScript
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com/)
+- **UI Components:** [Shadcn UI](https://ui.shadcn.com/) (Radix Primitives)
+- **Backend & Database:** [Convex](https://www.convex.dev/)
+- **Authentication:** [Clerk](https://clerk.com/)
+- **AI Integration:** [Google Generative AI](https://ai.google.dev/) (Gemini 2.0 Flash)
+- **Payment & Ticketing:** Custom logic for Free/Paid events with QR Code generation (`html5-qrcode`, `react-qr-code`)
+- **Forms:** React Hook Form + Zod
 
-### Why this project?
-This project demonstrates modern full-stack development practices, integrating serverless backend architecture (Convex) with a robust frontend framework (Next.js). It highlights the practical application of AI in everyday workflows, automating mundane tasks like drafting event descriptions.
+## ✨ Features
 
-## Key Features
+- **🤖 AI-Powered Event Creation:** Generate event titles, descriptions, and categories instantly using Google Gemini AI.
+- **🔐 Secure Authentication:** Seamless sign-up and login via Clerk.
+- **📅 Event Management:** diverse tools to create, update, and manage events.
+- **🎟️ Smart Ticketing System:** 
+  - Support for Free and Paid events.
+  - Generates unique QR codes for every ticket.
+  - Real-time check-in status tracking.
+- **🔍 Explore & Search:** Dynamic search and filtering by category to discover events.
+- **📱 Responsive Design:** Fully optimized for mobile and desktop devices.
+- **📊 Organizer Dashboard:** Track registrations and event performance.
 
-- **🤖 AI-Powered Creation**: Generate professional event titles and descriptions instantly using Google Gemini AI.
-- **⚡ Real-time Updates**: Instant data synchronization across all clients using Convex.
-- **🔐 Secure Authentication**: Robust user management and protection via Clerk.
-- **🎟️ Ticketing System**: Integrated QR code generation for streamlined event check-ins.
-- **📱 Responsive Design**: A mobile-first interface built with Tailwind CSS and Radix UI.
-- **🔎 Advanced Search**: Efficient event filtering and discovery mechanisms.
+## 📂 Project Structure
 
-## Tech Stack
+```bash
+ai-event-organizer/
+├── app/
+│   ├── (auth)/          # Authentication routes (Sign-in, Sign-up)
+│   ├── (main)/          # Protected routes (Create Event, My Events, Tickets)
+│   ├── (public)/        # Public routes (Explore, Event Details)
+│   ├── api/             # API Endpoints (AI Generation)
+│   └── layout.js        # Root layout with Providers
+├── components/          # Reusable UI components
+├── convex/              # Backend logic
+│   ├── schema.js        # Database schema
+│   ├── auth.config.js   # Auth configuration
+│   └── *.js             # Backend functions (events, users, tickets)
+├── lib/                 # Utility functions
+├── public/              # Static assets
+├── .env.local           # Environment variables
+├── next.config.mjs      # Next.js configuration
+└── package.json         # Dependencies and scripts
+```
 
-This project is built using a cutting-edge stack chosen for performance and developer experience:
-
-- **Frontend**: [Next.js 16](https://nextjs.org/) (App Router), [React 19](https://react.dev/)
-- **Backend & Database**: [Convex](https://convex.dev/) (Serverless, Real-time)
-- **Authentication**: [Clerk](https://clerk.com/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/), [Radix UI](https://www.radix-ui.com/), [Lucide React](https://lucide.dev/)
-- **AI Integration**: [Google Gemini API](https://ai.google.dev/)
-- **Forms & Validation**: React Hook Form, Zod
-
-## Getting Started
-
-Follow these steps to set up the project locally.
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- npm, yarn, or bun
+- Node.js (v18 or higher)
+- npm or yarn
+- Accounts for [Clerk](https://clerk.com/), [Convex](https://www.convex.dev/), and [Google AI Studio](https://aistudio.google.com/).
 
 ### Installation
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/santrupt29/ai-event-organizer.git
+   git clone https://github.com/yourusername/ai-event-organizer.git
    cd ai-event-organizer
    ```
 
@@ -52,46 +71,42 @@ Follow these steps to set up the project locally.
    ```
 
 3. **Set up Environment Variables**
-   Create a `.env.local` file in the root directory and add the following:
-
+   Create a `.env.local` file in the root directory and add the following keys:
    ```env
-   # Deployment used by `npx convex dev`
-   CONVEX_DEPLOYMENT=dev:your-deployment-name # Automatically generated by Convex
+   # Convex
+   CONVEX_DEPLOYMENT=...
+   NEXT_PUBLIC_CONVEX_URL=...
 
-   # Team, project, and deployment URIs
-   NEXT_PUBLIC_CONVEX_URL=https://your-convex-url.convex.cloud
-
-   # Clerk Authentication
-   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
-   CLERK_SECRET_KEY=sk_test_...
-   CLERK_JWT_ISSUER_DOMAIN=https://your-clerk-domain.clerk.accounts.dev
-   CLERK_JWT_AUDIENCE=convex
+   # Clerk
+   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
+   CLERK_SECRET_KEY=...
 
    # Google Gemini AI
-   GEMINI_API_KEY=your_google_gemini_api_key
+   GEMINI_API_KEY=...
+   
+   # Base URL
+   NEXT_PUBLIC_BASE_URL=http://localhost:3000
    ```
 
-4. **Start the Convex backend**
+4. **Start the Backend**
+   Run the Convex development server:
    ```bash
    npx convex dev
    ```
 
-5. **Run the development server**
-   Open a formatted new terminal window and run:
+5. **Start the Frontend**
+   Run the Next.js development server:
    ```bash
    npm run dev
    ```
 
-6. **Open the app**
-   Visit [http://localhost:3000](http://localhost:3000) to see the application in action.
+6. **Open the App**
+   Visit `http://localhost:3000` in your browser.
 
-## Project Structure
+## 🤝 Contributing
 
-- `app/`: Next.js App Router pages and API routes.
-- `convex/`: Backend logic, database schema, and server-side functions.
-- `components/`: Reusable UI components.
-- `lib/`: Utility functions and shared helpers.
-- `hooks/`: Custom React hooks.
----
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Created by [Santrupt](https://github.com/santrupt29)
+## 📄 License
+
+This project is licensed under the MIT License.
